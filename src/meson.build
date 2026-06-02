@@ -3,6 +3,7 @@ sources = files(
 )
 
 subdir('widgets')
+subdir('utils')
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
 executable(
@@ -11,6 +12,11 @@ executable(
     dependencies: [
         dependency('gtk4'),
         dependency('glib-2.0'),
+        dependency('gio-2.0'),
+        dependency('gobject-2.0'),
+        dependency('libarchive'),
+        dependency('glib-2.0'),
+        dependency('libsoup-3.0'),
         dependency('libadwaita-1', version: '>= 1.6'),
         meson.get_compiler('c').find_library('m', required : false),
         config_dep,
