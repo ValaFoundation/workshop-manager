@@ -1,0 +1,5 @@
+/build
+
+/.vscode
+/po/io.github.yourusername.yourrepositoryname.pot
+/po/io.github.JanGalek.vala-application-template.pot
