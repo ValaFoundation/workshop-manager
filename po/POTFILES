@@ -1,4 +1,4 @@
-data/vala-application-template.desktop.in
-data/vala-application-template.metainfo.xml.in
+data/com.github.JanGalek.vala-application-template.desktop.in
+data/com.github.JanGalek.vala-application-template.metainfo.xml.in
 src/main.vala
 src/widgets/Application.vala

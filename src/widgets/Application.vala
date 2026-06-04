@@ -1,6 +1,7 @@
 namespace App.Widgets {
     using Adw;
     using Gtk;
+    using GLib;
     public class Application : Adw.Application {
         private ProgressBar progress_bar;
         Button download_btn;
@@ -16,7 +17,10 @@ namespace App.Widgets {
             base.activate ();
             var display = Gdk.Display.get_default ();
 
-            Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/vysp3r/ProtonPlus/icons");
+            Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/github/JanGalek/vala-application-template");
+
+            var style_manager = Adw.StyleManager.get_default ();
+            style_manager.set_color_scheme (Adw.ColorScheme.FORCE_DARK);
 
             // var label = new Gtk.Label ("Hello Again World!");
 
@@ -40,10 +44,10 @@ namespace App.Widgets {
             string game_path = "/cesta/k/Gothic 3"; // Zde dosadíme reálnou cestu
 
             try {
-                this.progress_bar.text = "Stahování...";
+                this.progress_bar.text = "Stahování…";
                 yield downloader.download_async ("https://example.com/g3_mod.tar.xz", archive_path);
 
-                this.progress_bar.text = "Zálohování a rozbalování...";
+                this.progress_bar.text = "Zálohování a rozbalování…";
                 this.progress_bar.pulse (); // Nastavit neurčitý režim (běhající kostička)
 
                 /**

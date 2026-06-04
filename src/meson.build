@@ -9,6 +9,7 @@ subdir('windows')
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
 executable(
     reponame,
+    resources,
     sources,
     dependencies: [
         dependency('gtk4'),
