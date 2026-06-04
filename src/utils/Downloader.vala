@@ -1,4 +1,4 @@
-namespace App.Utils { 
+namespace App.Utils {
     using Soup;
     using GLib;
 
@@ -16,13 +16,11 @@ namespace App.Utils {
 
             File parent_dir = dest_file.get_parent ();
             if (!parent_dir.query_exists (null)) {
-                parent_dir.make_directory_with_parents( null);
+                parent_dir.make_directory_with_parents (null);
             }
 
             var message = new Message ("GET", url);
-            FileOutputStream out_stream = yield dest_file.replace_async (
-                null, false, FileCreateFlags.NONE, Priority.DEFAULT, null
-            );
+            FileOutputStream out_stream = yield dest_file.replace_async (null, false, FileCreateFlags.NONE, Priority.DEFAULT, null);
 
             InputStream in_stream = yield session.send_async (message, Priority.DEFAULT, null);
 
@@ -33,12 +31,12 @@ namespace App.Utils {
 
             while (true) {
                 ssize_t bytes_read = yield in_stream.read_async (buffer, Priority.DEFAULT, null);
-                
+
                 if (bytes_read == 0) {
                     break;
                 }
 
-                yield out_stream.write_all_async (buffer[0:bytes_read], Priority.DEFAULT, null, null);
+                yield out_stream.write_all_async (buffer[0 : bytes_read], Priority.DEFAULT, null, null);
 
                 downloaded_bytes += bytes_read;
 
@@ -49,6 +47,7 @@ namespace App.Utils {
             }
 
             yield out_stream.close_async (Priority.DEFAULT, null);
+
             yield in_stream.close_async (Priority.DEFAULT, null);
 
             return true;

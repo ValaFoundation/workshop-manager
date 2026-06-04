@@ -18,13 +18,10 @@ namespace App.Widgets {
 
             Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/vysp3r/ProtonPlus/icons");
 
-            var label = new Gtk.Label ("Hello Again World!");
+            // var label = new Gtk.Label ("Hello Again World!");
 
-
-            var main_window = new Window ();
+            var main_window = new Windows.Window ();
             main_window.present ();
-
-            main_window.append (label);
         }
 
         private async void download_and_extract_process () {
