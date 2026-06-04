@@ -12,7 +12,7 @@ namespace App.Windows.Header {
             menu.append (_("_Preferences"), "app.preferences");
             menu.append (_("_Keyboard Shortcuts"), "win.show-help-overlay");
             menu.append (_("_Donate"), "app.donate");
-            menu.append (_("_About ProtonPlus"), "app.about");
+            menu.append (_("_About"), "app.about");
 
             menu_button = new Gtk.MenuButton ();
             menu_button.set_tooltip_text (_("Main Menu"));

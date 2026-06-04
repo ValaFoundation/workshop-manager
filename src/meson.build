@@ -3,6 +3,7 @@ sources = files(
 )
 
 subdir('app')
+subdir('dialogs')
 subdir('widgets')
 subdir('utils')
 subdir('windows')
@@ -20,7 +21,7 @@ executable(
         dependency('libarchive'),
         dependency('glib-2.0'),
         dependency('libsoup-3.0'),
-        dependency('libadwaita-1', version: '>= 1.6'),
+        dependency('libadwaita-1', version: '>= 1.9'),
         meson.get_compiler('c').find_library('m', required : false),
         config_dep,
     ],

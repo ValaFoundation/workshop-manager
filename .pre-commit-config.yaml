@@ -3,6 +3,7 @@ repos:
     rev: 0.1.0
     hooks:
     - id: vala-lint
+      args: [--config=.vala-lint.conf]
   - repo: https://github.com/gouef/commit-lint-action
     rev: v1.1.1
     hooks:

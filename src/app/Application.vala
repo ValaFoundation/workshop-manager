@@ -11,18 +11,29 @@ namespace App {
                     application_id: Config.APP_ID,
                     flags: ApplicationFlags.DEFAULT_FLAGS
             );
+
+            ActionEntry[] action_entries = {
+                //{ "report", this.on_report_action },
+                //{ "preferences", this.on_preferences_action },
+                { "about", this.on_about_action },
+                //{ "donate", this.on_donate_action },
+                //{ "reload", this.on_reload_action },
+                //{ "on_language_change", this.on_language_change },
+                { "quit", this.quit },
+            };
+            this.add_action_entries (action_entries, this);
+        }
+
+        void on_about_action () {
+            Dialogs.About.show (this.active_window);
         }
 
         public override void activate () {
-            base.activate ();
             var display = Gdk.Display.get_default ();
 
             Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/github/JanGalek/vala-application-template");
 
-            var style_manager = Adw.StyleManager.get_default ();
             style_manager.set_color_scheme (Adw.ColorScheme.FORCE_DARK);
-
-            // var label = new Gtk.Label ("Hello Again World!");
 
             var main_window = new Windows.Window ();
             main_window.present ();

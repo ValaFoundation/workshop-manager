@@ -12,23 +12,28 @@ namespace App.Windows {
         }
 
         private void build_ui (owned Gtk.Box? content = null) {
+            toolbar_view = new Adw.ToolbarView ();
+
             var header = new Header.Box ();
+            toolbar_view.add_top_bar (header);
+
             if (content == null) {
                 content = new Content.Box ();
             }
 
             set_content_view (content);
-
-            toolbar_view = new Adw.ToolbarView ();
-            toolbar_view.add_top_bar (header);
-            toolbar_view.set_content (content);
             set_content (toolbar_view);
         }
 
         public void set_content_view (Gtk.Box content) {
-            this.content_box.destroy ();
+            if (this.content_box != null) {
+                this.toolbar_view.set_content (null);
+                this.content_box.unparent ();
+                this.content_box = null;
+            }
+
             this.content_box = content;
-            toolbar_view.set_content (content);
+            this.toolbar_view.set_content (content);
         }
 
         public void append (Gtk.Widget widget) {
