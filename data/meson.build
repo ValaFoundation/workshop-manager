@@ -1,3 +1,5 @@
+i18n = import('i18n')
+
 reponame = meson.project_name().split('.')[3]
 
 resources = gnome.compile_resources(

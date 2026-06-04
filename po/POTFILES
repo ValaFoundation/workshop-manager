@@ -1,4 +1,6 @@
-# Tento soubor je generován automaticky
+# This file is generated automatic
+data/com.github.JanGalek.vala-application-template.desktop.in
+data/com.github.JanGalek.vala-application-template.metainfo.xml.in
 src/utils/Downloader.vala
 src/windows/header/Box.vala
 src/windows/content/Mod.vala
