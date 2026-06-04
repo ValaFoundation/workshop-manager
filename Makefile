@@ -6,6 +6,9 @@ install:
 uninstall: 
 	cd build && ninja uninstall
 
+gen-potfiles:
+	@echo "# This file is generated automatic" > po/POTFILES
+	@find src -name "*.vala" -not -path "*/build/*" >> po/POTFILES
 
 translations: 
 	@NAME=$$(grep -oP "project\('\K[^']+" meson.build); \
@@ -15,7 +18,7 @@ run:
 	cd build && ninja
 	./build/src/$$(grep -oP "project\('\K[^']+" meson.build | tr '[:upper:]' '[:lower:]' | awk -F. '{print $$NF}')
 
-build-run: clean build translations run
+build-run: gen-potfiles clean build translations run
 
 clean: 
 	rm -rf build

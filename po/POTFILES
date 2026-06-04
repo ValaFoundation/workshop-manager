@@ -1,4 +1,12 @@
-data/com.github.JanGalek.vala-application-template.desktop.in
-data/com.github.JanGalek.vala-application-template.metainfo.xml.in
-src/main.vala
+# Tento soubor je generován automaticky
+src/utils/Downloader.vala
+src/windows/header/Box.vala
+src/windows/content/Mod.vala
+src/windows/content/Box.vala
+src/windows/content/BaseBox.vala
+src/windows/content/GameMods.vala
+src/windows/content/Games.vala
+src/windows/Window.vala
 src/app/Application.vala
+src/main.vala
+src/dialogs/About.vala
