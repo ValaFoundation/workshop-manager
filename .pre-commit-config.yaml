@@ -3,3 +3,11 @@ repos:
     rev: 0.1.0
     hooks:
     - id: vala-lint
+  - repo: https://github.com/gouef/commit-lint-action
+    rev: v1.1.0
+    hooks:
+      - id: check-commit-msg
+        args: [
+          "-prefixes", "Add|Fix|Update|Remove|Refactor|Docs|Test|Improve|Merge|Bump", # Vaše vlastní prefixy
+          "-minLength", "6"                              # Vlastní minimální délka
+        ]
