@@ -2,13 +2,6 @@ namespace App.Utils {
     using Soup;
     using GLib;
 
-    enum Method {
-        GET = "GET",
-        POST = "POST",
-        PUT = "PUT",
-        DELETE = "DELETE"
-    }
-
     public class Downloader : Object {
         public signal void progress_changed (double percent);
 

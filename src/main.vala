@@ -1,6 +1,6 @@
-namespace App { 
+namespace App {
     public static int main (string[] args) {
-        var application = new Application ();
+        var application = new Widgets.Application ();
         return application.run (args);
     }
 }

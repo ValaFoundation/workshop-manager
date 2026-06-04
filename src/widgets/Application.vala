@@ -1,4 +1,4 @@
-namespace App { 
+namespace App.Widgets {
     using Adw;
     using Gtk;
     public class Application : Adw.Application {
@@ -7,29 +7,31 @@ namespace App {
 
         public Application () {
             Object (
-                application_id: Config.APP_ID,
-                flags: ApplicationFlags.DEFAULT_FLAGS
+                    application_id: Config.APP_ID,
+                    flags: ApplicationFlags.DEFAULT_FLAGS
             );
         }
 
-        protected override void activate () {
-            var label = new Gtk.Label ("Hello Again World!");
-    
-            var main_window = new Gtk.ApplicationWindow (this) {
-                child = label,
-                default_height = 300,
-                default_width = 300,
-                title = _ ("Hello World")
-            };
-            main_window.present ();
-        }
+        public override void activate () {
+            base.activate ();
+            var display = Gdk.Display.get_default ();
 
+            Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/vysp3r/ProtonPlus/icons");
+
+            var label = new Gtk.Label ("Hello Again World!");
+
+
+            var main_window = new Window ();
+            main_window.present ();
+
+            main_window.append (label);
+        }
 
         private async void download_and_extract_process () {
             this.download_btn.sensitive = false; // Deaktivujeme tlačítko během práce
-            
+
             var downloader = new Utils.Downloader ();
-            
+
             // Propojení signálu ze stahovače přímo na ProgressBar
             downloader.progress_changed.connect ((pct) => {
                 this.progress_bar.fraction = pct;
@@ -48,9 +50,9 @@ namespace App {
                 this.progress_bar.pulse (); // Nastavit neurčitý režim (běhající kostička)
 
                 /**
-                var extractor = new Extractor ();
-                yield extractor.extract_mod_async (archive_path, game_path, "g3_sample_mod");
-                */
+                   var extractor = new Extractor ();
+                   yield extractor.extract_mod_async (archive_path, game_path, "g3_sample_mod");
+                 */
                 this.progress_bar.fraction = 1.0;
                 this.progress_bar.text = "Hotovo!";
             } catch (Error e) {
@@ -59,6 +61,5 @@ namespace App {
 
             this.download_btn.sensitive = true;
         }
-        
     }
 }
