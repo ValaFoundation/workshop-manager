@@ -40,11 +40,10 @@ namespace App {
         }
 
         private async void download_and_extract_process () {
-            this.download_btn.sensitive = false; // Deaktivujeme tlačítko během práce
+            this.download_btn.sensitive = false;
 
             var downloader = new Utils.Downloader ();
 
-            // Propojení signálu ze stahovače přímo na ProgressBar
             downloader.progress_changed.connect ((pct) => {
                 this.progress_bar.fraction = pct;
             });
@@ -52,14 +51,14 @@ namespace App {
             string archive_name = "g3_mod.tar.xz";
             string cache_dir = Path.build_filename (Environment.get_user_cache_dir (), "universal-workshop");
             string archive_path = Path.build_filename (cache_dir, archive_name);
-            string game_path = "/cesta/k/Gothic 3"; // Zde dosadíme reálnou cestu
+            string game_path = "/cesta/k/Gothic 3";
 
             try {
                 this.progress_bar.text = "Stahování…";
                 yield downloader.download_async ("https://example.com/g3_mod.tar.xz", archive_path);
 
                 this.progress_bar.text = "Zálohování a rozbalování…";
-                this.progress_bar.pulse (); // Nastavit neurčitý režim (běhající kostička)
+                this.progress_bar.pulse ();
 
                 /**
                    var extractor = new Extractor ();
