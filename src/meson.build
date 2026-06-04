@@ -2,6 +2,7 @@ sources = files(
     'main.vala', 
 )
 
+subdir('app')
 subdir('widgets')
 subdir('utils')
 subdir('windows')

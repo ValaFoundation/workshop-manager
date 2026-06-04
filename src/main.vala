@@ -1,6 +1,6 @@
 namespace App {
     public static int main (string[] args) {
-        var application = new Widgets.Application ();
+        var application = new Application ();
         return application.run (args);
     }
 }

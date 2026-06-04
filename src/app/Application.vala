@@ -1,4 +1,4 @@
-namespace App.Widgets {
+namespace App {
     using Adw;
     using Gtk;
     using GLib;

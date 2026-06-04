@@ -3,3 +3,4 @@ buildDir
 builddir
 po
 data
+.vscode
