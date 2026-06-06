@@ -24,7 +24,7 @@ namespace App.Dialogs {
 
             dialog.set_comments (_ ("A modern workshop manager"));
             dialog.add_link ("GitHub", "https://github.com/JanGalek/workshop-manager");
-            dialog.set_issue_url ("https://github.com/JanGalek/workshop-manager/issues/new/choose");
+            dialog.set_issue_url ("https://github.com/JanGalek/workshop-manager/issues/new");
             dialog.set_copyright (get_copyright ());
             dialog.set_license_type (Gtk.License.GPL_3_0);
             dialog.set_developers (DEVELOPERS);
