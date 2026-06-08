@@ -1,5 +1,6 @@
 /build
 /builddir
+/build-tests
 
 /.vscode
 /po/io.github.yourusername.yourrepositoryname.pot
