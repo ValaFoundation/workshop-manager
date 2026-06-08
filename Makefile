@@ -1,6 +1,6 @@
 
 build:
-	meson setup build --prefix=/usr
+	rm -rf build && meson setup build --wipe --prefix=/usr
 install: 
 	cd build && ninja && ninja install
 uninstall: 
@@ -23,3 +23,8 @@ build-run: gen-potfiles clean build translations run
 
 clean: 
 	rm -rf build
+
+run-tests:
+	(meson setup build && meson compile -C build && meson test -C build --verbose)
+
+tests: gen-potfiles clean build translations run-tests

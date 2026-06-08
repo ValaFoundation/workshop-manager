@@ -4,7 +4,8 @@ reponame = meson.project_name().split('.')[3]
 
 resources = gnome.compile_resources(
     'resources',
-    meson.project_name() + '.gresource.xml'
+    meson.project_name() + '.gresource.xml',
+    source_dir: meson.current_source_dir()
 )
 
 install_subdir(

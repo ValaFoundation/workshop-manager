@@ -3,11 +3,6 @@ project('com.github.JanGalek.vala-application-template', 'vala', 'c',
     meson_version: '>= 1.0.0'
 )
 
-dependency('glib-2.0')
-dependency('gio-2.0')
-dependency('gtk4')
-dependency('libadwaita-1')
-
 reponame = meson.project_name().split('.')[3]
 
 # Include the translations module
@@ -40,6 +35,7 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), la
 subdir('data')
 subdir('src')
 subdir('po')
+subdir('tests')
 
 gnome.post_install(
   glib_compile_schemas: true,

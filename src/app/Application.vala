@@ -29,11 +29,13 @@ namespace App {
         }
 
         public override void activate () {
-            var display = Gdk.Display.get_default ();
+            var style_manager = Adw.StyleManager.get_default ();
 
-            Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/github/JanGalek/vala-application-template");
+            //var display = Gdk.Display.get_default ();
 
-            style_manager.set_color_scheme (Adw.ColorScheme.FORCE_DARK);
+            //Gtk.IconTheme.get_for_display (display).add_resource_path ("/com/github/JanGalek/vala-application-template");
+
+            style_manager.set_color_scheme (Adw.ColorScheme.PREFER_DARK);
 
             var main_window = new Windows.Window ();
             main_window.present ();
