@@ -7,14 +7,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Děkujeme, že nám pomáháte vylepšovat aplikaci! Prosíme o pečlivé vyplnění formuláře níže.
+        Thank you for taking the time to report a bug and helping us improve ProtonPlus! Please fill out the form below as accurately as possible.
 
   - type: textarea
     id: description
     attributes:
       label: Describe the bug
       description: A clear and concise description of what the bug is.
-      placeholder: "e.g., Application crashes when clicking the settings button..."
+      placeholder: "e.g., The application crashes immediately when clicking the settings button..."
     validations:
       required: true
 
