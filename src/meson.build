@@ -2,6 +2,7 @@ sources = files()
 
 subdir('app')
 subdir('dialogs')
+subdir('models')
 subdir('widgets')
 subdir('utils')
 subdir('windows')
@@ -9,6 +10,8 @@ subdir('windows')
 sources_app = files(
     'main.vala', 
 )
+
+vala_downloader_dep = dependency('vala_downloader', fallback: ['vala-downloader-lib', 'vala_downloader_dep'])
 
 deps = [
     config_dep,
@@ -21,6 +24,7 @@ deps = [
     dependency('glib-2.0'),
     dependency('libsoup-3.0'),
     dependency('libadwaita-1', version: '>= 1.9'),
+    vala_downloader_dep,
     meson.get_compiler('c').find_library('m', required : false),
 ]
 
