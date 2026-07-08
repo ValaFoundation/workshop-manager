@@ -25,6 +25,8 @@ clean:
 	rm -rf build
 
 run-tests:
-	(meson setup build-tests && meson compile -C build-tests && meson test -C build-tests --verbose)
+	@meson setup --reconfigure build-tests . >/dev/null 2>&1 || (rm -rf build-tests && meson setup build-tests .)
+	meson compile -C build-tests
+	meson test -C build-tests --verbose
 
 tests: gen-potfiles clean build translations run-tests

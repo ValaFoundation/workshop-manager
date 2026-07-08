@@ -3,11 +3,10 @@ using Gee;
 
 int main (string[] args) {
 
-    AppTests.BaseTest.saved_commands = new Gee.ArrayList<AppTests.TestCommand> ();
+    ValaFoundation.Testcases.BaseTest.saved_commands = new Gee.ArrayList<ValaFoundation.Testcases.TestCommand> ();
     Test.init (ref args);
 
-    AppTests.register_test_suite <AppTests.UkazkaTest> ();
-    AppTests.register_test_suite <AppTests.UkazkaTest2> ();
+    ValaFoundation.Testcases.register_test_suite<AppTests.ExampleTest> ();
 
 
     return Test.run ();

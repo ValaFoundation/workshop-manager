@@ -33,6 +33,12 @@ app_lib = static_library(
     install : false
 )
 
+app_deps = declare_dependency(
+    link_with: app_lib,
+    include_directories: include_directories('.'),
+    dependencies: deps,
+)
+
 executable(
     reponame,
     resources,
