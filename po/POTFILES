@@ -12,3 +12,4 @@ src/windows/Window.vala
 src/app/Application.vala
 src/main.vala
 src/dialogs/About.vala
+src/models/Game/game.vala
