@@ -1,7 +1,6 @@
-[wrap-git]
-url = https://github.com/ValaFoundation/cache-manager.git
-revision = master
-depth = 1
+
+[wrap-file]
+directory = cache-manager
 
 [provide]
-cache_manager = cache_manager_deps
+cache-manager = cache_manager_dep

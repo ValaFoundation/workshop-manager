@@ -1,0 +1,6 @@
+
+[wrap-file]
+directory = downloader-lib
+
+[provide]
+vala_downloader = vala_downloader_dep

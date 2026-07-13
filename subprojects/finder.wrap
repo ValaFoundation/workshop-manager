@@ -1,0 +1,6 @@
+
+[wrap-file]
+directory = finder
+
+[provide]
+finder = finder_dep

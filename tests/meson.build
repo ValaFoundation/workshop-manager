@@ -4,11 +4,9 @@ test_sources = files(
   'example_test.vala',
 )
 
-vala_testcases_dep = dependency('vala_testcases', fallback: ['vala_testcases', 'vala_testcases_dep'])
-
 test_exe = executable('tests',
   test_sources,
-  dependencies: [app_deps, vala_testcases_dep],
+  dependencies: [app_deps, vamposer_deps],
   link_with: app_lib,
   include_directories: [include_directories('../src')],
   vala_args: ['--target-glib=2.58'],

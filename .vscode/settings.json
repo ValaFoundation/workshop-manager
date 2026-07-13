@@ -22,5 +22,7 @@
         "**/build-tests": true,
         "**/builddir": true
     },
-    "mesonbuild.configureOnOpen": true
+    "mesonbuild.configureOnOpen": true,
+    "C_Cpp.default.compileCommands": "/home/warfacez/development/vala/valaFoundation/workshop-manager/builddir/compile_commands.json",
+    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild"
 }

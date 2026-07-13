@@ -1,0 +1,23 @@
+{
+  "dependencies" : {
+    "ValaFoundation/cache-manager" : "master",
+    "ValaFoundation/downloader-lib" : "master",
+    "ValaFoundation/finder" : "master"
+  },
+  "dependencies-dev" : {
+    "ValaFoundation/testcases" : "master"
+  },
+  "system_dependencies" : {
+    "gtk4" : "*",
+    "glib-2.0" : "*",
+    "gio-2.0" : "*",
+    "gobject-2.0" : "*",
+    "gee-0.8" : "*",
+    "libarchive" : "*",
+    "glib" : "*",
+    "libsoup-3.0" : "*",
+    "libadwaita-1" : "*"
+  },
+  "aliases" : {  },
+  "alias_sources" : []
+}
