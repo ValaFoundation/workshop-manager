@@ -12,6 +12,8 @@ permissions:
 jobs:
   release-build:
     runs-on: ubuntu-latest
+    container:
+      image: fedora:44
 
     steps:
       - name: Checkout repository
@@ -35,21 +37,40 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
+          dnf -y update
+          dnf -y install \
+            ca-certificates \
+            curl \
+            git \
+            gh \
             meson \
             ninja-build \
-            valac \
-            pkg-config \
+            vala \
+            pkgconf-pkg-config \
             gettext \
-            libglib2.0-dev \
-            libgee-0.8-dev \
-            libjson-glib-dev
+            perl \
+            python3 \
+            zip \
+            glib2-devel \
+            libgee-devel \
+            json-glib-devel \
+            libsoup3-devel \
+            libarchive-devel \
+            libadwaita-devel
 
-      - name: Setup Vamposer
-        uses: ValaFoundation/vamposer@master
-        with:
-          version: latest
+      - name: Install Vamposer
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /usr/local/bin/vamposer https://github.com/ValaFoundation/vamposer/releases/latest/download/vamposer-linux
+          curl -fsSL -o /tmp/vamposer-linux.sha256 https://github.com/ValaFoundation/vamposer/releases/latest/download/vamposer-linux.sha256
+          expected_sha="$(awk '{print $1}' /tmp/vamposer-linux.sha256)"
+          actual_sha="$(sha256sum /usr/local/bin/vamposer | awk '{print $1}')"
+          if [ "${actual_sha}" != "${expected_sha}" ]; then
+            echo "::error::Checksum mismatch while installing vamposer"
+            exit 1
+          fi
+          chmod +x /usr/local/bin/vamposer
 
       - name: Install vamposer dependencies
         run: vamposer install --dev
