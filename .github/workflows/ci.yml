@@ -27,7 +27,8 @@ jobs:
             valac \
             pkg-config \
             libglib2.0-dev \
-            libgee-0.8-dev
+            libgee-0.8-dev \
+            json-glib-1.0
 
       - name: Setup Vamposer
         uses: ValaFoundation/vamposer@master
