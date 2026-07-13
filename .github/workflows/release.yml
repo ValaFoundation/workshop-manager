@@ -41,8 +41,18 @@ jobs:
             ninja-build \
             valac \
             pkg-config \
+            gettext \
             libglib2.0-dev \
-            libgee-0.8-dev
+            libgee-0.8-dev \
+            libjson-glib-dev
+
+      - name: Setup Vamposer
+        uses: ValaFoundation/vamposer@master
+        with:
+          version: latest
+
+      - name: Install vamposer dependencies
+        run: vamposer install --dev
 
       - name: Configure release build
         run: meson setup build-release --buildtype=release
